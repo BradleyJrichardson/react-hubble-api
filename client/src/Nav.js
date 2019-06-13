@@ -33,21 +33,26 @@ export default function Nav() {
               </NavLink>
             </li>
             <li>
-              <NavLink
-                to="/hubble"
-                className="nav-link"
-                activeStyle={activeStyle}
-              >
+              <NavLink to="/ISS" className="nav-link" activeStyle={activeStyle}>
                 ISS
               </NavLink>
             </li>
             <li>
               <NavLink
-                to="/hubble"
+                to="/spaceX"
                 className="nav-link"
                 activeStyle={activeStyle}
               >
                 SpaceX
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/nasa"
+                className="nav-link"
+                activeStyle={activeStyle}
+              >
+                NASA
               </NavLink>
             </li>
           </ul>
