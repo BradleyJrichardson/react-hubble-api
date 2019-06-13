@@ -59,7 +59,7 @@ class App extends Component {
             <img className="telescope" src={telescope} alt="" />
             <div className="container">
               <div className="subheader">{this.state.name}</div>
-              <div>{this.state.description}</div>
+              <div className="description">{this.state.description}</div>
               <div>{this.state.mission}</div>
               <div>{this.state.credits}</div>
               <img className="image" src={this.state.image_url} alt="" />
