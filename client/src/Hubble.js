@@ -45,7 +45,23 @@ class Hubble extends Component {
     const resultsfour = resultsthree.forEach(string => {
       testres.push(string.replace('"', ""));
     });
+
     console.log(resultsfour);
+    const splitDescription = description.match(/[^\.!\?]+[\.!\?]+|[^\.!\?]+/g);
+
+    console.log(splitDescription);
+
+    function groupArr(data, n) {
+      var group = [];
+      for (var i = 0, j = 0; i < data.length; i++) {
+        if (i >= n && i % n === 0) j++;
+        group[j] = group[j] || [];
+        group[j].push(data[i]);
+      }
+      return group;
+    }
+    const resultstest = groupArr(splitDescription, 3);
+    console.log(resultstest);
 
     this.setState({
       name: name,
