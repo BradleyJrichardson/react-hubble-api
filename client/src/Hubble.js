@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./Hubble.css";
 import Loading from "./Loading";
 import telescope from "./telescope.png";
 

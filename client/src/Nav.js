@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import "./Nav.css";
+// import "./Nav.css";
 import React from "react";
 import { ThemeConsumer } from "./theme";
 
@@ -15,7 +15,7 @@ export default function Nav() {
           <ul className="row nav">
             <li>
               <NavLink
-                to="/"
+                to="/home"
                 className="nav-link"
                 exact
                 activeStyle={activeStyle}
@@ -29,7 +29,25 @@ export default function Nav() {
                 className="nav-link"
                 activeStyle={activeStyle}
               >
-                Battle
+                Hubble
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/hubble"
+                className="nav-link"
+                activeStyle={activeStyle}
+              >
+                ISS
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/hubble"
+                className="nav-link"
+                activeStyle={activeStyle}
+              >
+                SpaceX
               </NavLink>
             </li>
           </ul>
