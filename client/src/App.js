@@ -9,7 +9,7 @@ class App extends Component {
     description: null,
     mission: null,
     credits: null,
-    image_url: null,
+    img_url: null,
     isLoading: null
   };
 
@@ -31,20 +31,21 @@ class App extends Component {
       throw Error(hubbleReponse.message);
     }
     const { name, description, credits, mission, image_files } = hubbleReponse;
-    const image_url = image_files[5].file_url;
-    const urls = credits.match(/\bhttps?:\/\/\S+/gi);
-    console.log(urls);
+    const img_url = image_files[5].file_url;
+    const credit_links = credits.split(">");
+    const results = credit_links.map(array => {
+      return array.match(/\bhttps?:\/\/\S+/gi);
+    });
+    console.log(results);
 
     this.setState({
       name: name,
       description: description,
       mission: mission,
-      credits: credits,
-      image_url: image_url
+      credits: credit_links,
+      img_url: img_url
     });
   };
-
-  // "<a href="http://www.nasa.gov/">NASA</a>, <a href="http://www.spacetelescope.org/">ESA</a>, and <a href="http://www.stsci.edu/">STScI</a>"
 
   render() {
     return (
@@ -61,8 +62,12 @@ class App extends Component {
               <div className="subheader">{this.state.name}</div>
               <div className="description">{this.state.description}</div>
               <div>{this.state.mission}</div>
-              <div>{this.state.credits}</div>
-              <img className="image" src={this.state.image_url} alt="" />
+              <div>
+                {this.state.credits.map(link => (
+                  <a href={link}>{link}</a>
+                ))}
+              </div>
+              <img className="image" src={this.state.img_url} alt="" />
             </div>
           </div>
         )}
