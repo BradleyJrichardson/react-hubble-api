@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Loading from "./Loading";
 import telescope from "./telescope.png";
+import { FaAngleRight } from "react-icons/fa";
 
 class Hubble extends Component {
   state = {
@@ -65,6 +66,7 @@ class Hubble extends Component {
 
         {this.state.isLoading && (
           <div>
+            <FaAngleRight className="next-icon" />
             <img className="telescope" src={telescope} alt="" />
             <div className="hubble-container">
               <div className="subheader">{this.state.name}</div>
