@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Loading from "./Loading";
 import telescope from "./telescope.png";
 import { FaAngleRight } from "react-icons/fa";
+import _ from "lodash";
 
 class Hubble extends Component {
   state = {
@@ -63,9 +64,13 @@ class Hubble extends Component {
     const resultstest = groupArr(splitDescription, 3);
     console.log(resultstest);
 
+    // lodash way
+    const test = _.chunk(splitDescription, 3);
+    console.log(test);
+
     this.setState({
       name: name,
-      description: description,
+      description: test,
       mission: mission,
       credits: testres,
       img_url: img_url
@@ -75,7 +80,10 @@ class Hubble extends Component {
   render() {
     return (
       <React.Fragment>
-        <h1 className="header">Hubble Api</h1>
+        <h1 className="header">
+          Hubble Api
+          <img className="telescope" src={telescope} alt="" />
+        </h1>
         {!this.state.isLoading && (
           <Loading text="Contacting the Hubble Api" speed={300} />
         )}
@@ -83,10 +91,14 @@ class Hubble extends Component {
         {this.state.isLoading && (
           <div>
             <FaAngleRight className="next-icon" />
-            <img className="telescope" src={telescope} alt="" />
+
             <div className="hubble-container">
               <div className="subheader">{this.state.name}</div>
-              <div className="description">{this.state.description}</div>
+              {this.state.description.map(para => (
+                <div key={para} className="description">
+                  {para}
+                </div>
+              ))}
               <img className="image" src={this.state.img_url} alt="" />
               <div className="credits">Credits</div>
               <div className="credit-container">
