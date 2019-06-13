@@ -73,7 +73,7 @@ class Hubble extends Component {
               <div className="credits">Credits</div>
               <div className="credit-container">
                 {this.state.credits.map(link => (
-                  <a className="credit-links" href={link}>
+                  <a key={link} className="credit-links" href={link}>
                     {link}
                   </a>
                 ))}
