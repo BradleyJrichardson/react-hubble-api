@@ -45,6 +45,7 @@ class Hubble extends Component {
     const resultsfour = resultsthree.forEach(string => {
       testres.push(string.replace('"', ""));
     });
+    console.log(resultsfour);
 
     this.setState({
       name: name,
@@ -66,7 +67,7 @@ class Hubble extends Component {
         {this.state.isLoading && (
           <div>
             <img className="telescope" src={telescope} alt="" />
-            <div className="container">
+            <div className="hubble-container">
               <div className="subheader">{this.state.name}</div>
               <div className="description">{this.state.description}</div>
               <img className="image" src={this.state.img_url} alt="" />
