@@ -231,9 +231,14 @@ li {
   margin-top: 100px;
   height: 400px;
   z-index: 0;
+  position: relative;
 }
 
-.card-img {
+.card-icon {
+  width: 150px;
+  position: absolute;
+  padding: 50px;
+  bottom: 0;
 }
 
 .card:hover {

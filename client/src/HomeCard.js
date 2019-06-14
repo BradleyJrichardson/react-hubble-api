@@ -1,7 +1,7 @@
 import React from "react";
 import { ThemeConsumer } from "./theme";
 
-export default function HomeCard({ header, about, wikilink, icon }) {
+export default function HomeCard({ header, about, icon }) {
   return (
     <ThemeConsumer>
       {({ theme }) => (
@@ -9,7 +9,6 @@ export default function HomeCard({ header, about, wikilink, icon }) {
           <h4 className="header-lg center-text">{header}</h4>
           <p className="link wiki-link">Wikipedia</p>
           <p className="about-text">{about}</p>
-
           <img className="card-icon" src={icon} alt="" />
         </div>
       )}
