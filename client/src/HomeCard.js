@@ -1,16 +1,16 @@
 import React from "react";
 import { ThemeConsumer } from "./theme";
 
-export default function HomeCard({ header, about, wikilink }) {
+export default function HomeCard({ header, about, wikilink, icon }) {
   return (
     <ThemeConsumer>
       {({ theme }) => (
         <div className={`card bg-${theme}`}>
           <h4 className="header-lg center-text">{header}</h4>
+          <p className="link wiki-link">Wikipedia</p>
           <p className="about-text">{about}</p>
-          <a className="link wiki-link" href={wikilink}>
-            Wikipedia
-          </a>
+
+          <img className="card-icon" src={icon} alt="" />
         </div>
       )}
     </ThemeConsumer>

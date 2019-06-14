@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Loading from "./Loading";
-import telescope from "./telescope.png";
+import hubbleicon from "./hubbleicon.png";
 import { FaAngleRight } from "react-icons/fa";
 import _ from "lodash";
 
@@ -82,7 +82,7 @@ class Hubble extends Component {
       <React.Fragment>
         <h1 className="header">
           Hubble Api
-          <img className="telescope" src={telescope} alt="" />
+          <img className="telescope" src={hubbleicon} alt="" />
         </h1>
         {!this.state.isLoading && (
           <Loading text="Contacting the Hubble Api" speed={300} />
