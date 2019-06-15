@@ -11,7 +11,8 @@ class Hubble extends Component {
     mission: null,
     credits: null,
     img_url: null,
-    isLoading: null
+    isLoading: null,
+    counter: 1
   };
 
   componentDidMount() {
@@ -25,7 +26,7 @@ class Hubble extends Component {
   }
 
   callHubbleAPI = async () => {
-    const response = await fetch("/hubble");
+    const response = await fetch(`/hubble/${this.state.counter}`);
     const hubbleReponse = await response.json();
 
     if (response.status !== 200) {
@@ -46,23 +47,8 @@ class Hubble extends Component {
     const resultsfour = resultsthree.forEach(string => {
       testres.push(string.replace('"', ""));
     });
-
     console.log(resultsfour);
     const splitDescription = description.match(/[^\.!\?]+[\.!\?]+|[^\.!\?]+/g);
-
-    console.log(splitDescription);
-
-    function groupArr(data, n) {
-      var group = [];
-      for (var i = 0, j = 0; i < data.length; i++) {
-        if (i >= n && i % n === 0) j++;
-        group[j] = group[j] || [];
-        group[j].push(data[i]);
-      }
-      return group;
-    }
-    const resultstest = groupArr(splitDescription, 3);
-    console.log(resultstest);
 
     // lodash way
     const test = _.chunk(splitDescription, 3);
@@ -73,7 +59,8 @@ class Hubble extends Component {
       description: test,
       mission: mission,
       credits: testres,
-      img_url: img_url
+      img_url: img_url,
+      counter: this.state.counter + 1
     });
   };
 
@@ -90,7 +77,9 @@ class Hubble extends Component {
 
         {this.state.isLoading && (
           <div>
-            <FaAngleRight className="next-icon" />
+            <button onClick={this.callHubbleAPI}>
+              <FaAngleRight className="next-icon" />
+            </button>
 
             <div className="hubble-container">
               <div className="subheader">{this.state.name}</div>
